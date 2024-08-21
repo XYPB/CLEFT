@@ -30,6 +30,8 @@ pip install flash-attn --no-build-isolation
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 ```
 
+Our model can run without these two package, but this may limit the training/inference speed and increase the GPU memory cost.
+
 ### Dataset
 
 Our experiment mainly uses the following three datasets. Please also follow the paper to pre-process the images. In general, we resize the images to have a short side of `518` and rename it with suffix of `_resized`.
@@ -46,7 +48,7 @@ Download at [here](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge).
 
 #### EMBED Dataset
 
-Acquire access from [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li5rkivs2#resources)
+Acquire access from [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li5rkivs2#resources).
 
 #### Data Split
 
@@ -67,7 +69,7 @@ First, we do contrastive pre-training by running the following command:
 ```bash
 python train.py  --batch_size 72 --learning_rate 4e-5 --experiment_name lora_linear_proj_learn_scale_pool_img_aug_swdcy --devices 4 --strategy 'ddp_find_unused_parameters_true' --llm_type gpt --precision bf16-true --peft lora --accumulate_grad_batches 1 --grad_ckpt --weight_decay 0.1 --warm_up 4000 --emb_dim 512 --max_steps 40000 --linear_proj --pool_feat
 ```
-You may use different PEFT method by changing the `--peft` parameter.
+You may use different PEFT method by changing the `--peft` parameter. Note that we uses full BFloat16 precision during training, which is only supported by NVIDIA GPU with Ampere architecture or newer. You may use PFloat16 for older GPUs, but this may results in a different behavior.
 
 
 #### Prompt Fine-tuning
