@@ -18,6 +18,7 @@ This is the official implementation of paper ["CLEFT: Language-Image Contrastive
 install with following steps:
 ```bash
 conda env create -f environment.yml
+# Manually install cosine annealing with warmup
 pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup'
 ```
 
@@ -25,7 +26,6 @@ You may need to manually install the `flash-attn` and `xformers` package if erro
 ```bash
 # Manually install flash attention
 pip install flash-attn --no-build-isolation
-# Manually install cosine annealing with warmup
 # Manually install xformers
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 ```
