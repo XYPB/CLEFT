@@ -99,6 +99,7 @@ We here provide the link to the LoRA pre-trained model in the paper below:
 |Contrastive Pre-train|[Google Drive](https://drive.google.com/file/d/1LN8EGvnkP85XsTySgOZ0VCS5wQkZK60_/view?usp=sharing)|
 |Prompt Fine-tune|[Google Drive](https://drive.google.com/file/d/1Df-EY26rS4-wg-Ip_PSPgRgfS0_issm5/view?usp=sharing)|
 
+The "Contrastive Pre-trained" mode generally gives a better stability while the "Prompt Fine-tuned" mode may behave better in some tasks. See more information from the original paper.
 
 ## Reference
 
