@@ -15,14 +15,14 @@ This is the official implementation of paper ["CLEFT: Language-Image Contrastive
 
 ### Environment
 
-install with following steps:
+install with the following steps:
 ```bash
 conda env create -f environment.yml
 # Manually install cosine annealing with warmup
 pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup'
 ```
 
-You may need to manually install the `flash-attn` and `xformers` package if error encountered:
+You may need to manually install the `flash-attn` and `xformers` packages if error is encountered:
 ```bash
 # Manually install flash attention
 pip install flash-attn --no-build-isolation
@@ -30,11 +30,11 @@ pip install flash-attn --no-build-isolation
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 ```
 
-Our model can run without these two package, but this may limit the training/inference speed and increase the GPU memory cost.
+Our model can run without these two packages, but this may limit the training/inference speed and increase the GPU memory cost.
 
 ### Dataset
 
-Our experiment mainly uses the following three datasets. Please also follow the paper to pre-process the images. In general, we resize the images to have a short side of `518` and rename it with suffix of `_resized`.
+Our experiment mainly uses the following three datasets. Please also follow the paper to pre-process the images. In general, we resize the images to have a short side of `518` and rename it with the suffix of `_resized`.
 
 #### CheXpert-1.0
 
@@ -54,11 +54,11 @@ Acquire access from [here](https://aws.amazon.com/marketplace/pp/prodview-unw4li
 
 We provide the data split for the Chexpert dataset [here](https://drive.google.com/file/d/11pzNo-dRJKgp_lAVhW-AadHAX4jGI8kr/view?usp=sharing). We use the same data split for the RSNA dataset.
 
-Note that we cannot share the data split for the EMBED dataset publicly as the access to this dataset needs approval. Please contact the [author](yuexi.du@yale.edu) once you have the access to the EMBED dataset, we will share the data split with you.
+Note that we cannot share the data split for the EMBED dataset publicly as access to this dataset needs approval. Please contact the author once you have access to the EMBED dataset, and we will share the data split with you.
 
 ### Reproduce the experiment results:
 
-We use `wandb` to log our experiment results, so you may want to configure your wandb first before reproduce the results.
+We use `wandb` to log our experiment results, so you may want to configure your `wandb` first before reproducing the results.
 
 To reproduce the results in the paper, you may follow the steps below:
 
@@ -69,7 +69,7 @@ First, we do contrastive pre-training by running the following command:
 ```bash
 python train.py  --batch_size 72 --learning_rate 4e-5 --experiment_name lora_linear_proj_learn_scale_pool_img_aug_swdcy --devices 4 --strategy 'ddp_find_unused_parameters_true' --llm_type gpt --precision bf16-true --peft lora --accumulate_grad_batches 1 --grad_ckpt --weight_decay 0.1 --warm_up 4000 --emb_dim 512 --max_steps 40000 --linear_proj --pool_feat
 ```
-You may use different PEFT method by changing the `--peft` parameter. Note that we uses full BFloat16 precision during training, which is only supported by NVIDIA GPU with Ampere architecture or newer. You may use PFloat16 for older GPUs, but this may results in a different behavior.
+You may use a different PEFT method by changing the `--peft` parameter. Note that we use full BFloat16 precision during training, which is only supported by NVIDIA GPU with Ampere architecture or newer. You may use PFloat16 for older GPUs, but this may results in a different behavior.
 
 
 #### Prompt Fine-tuning
@@ -99,7 +99,7 @@ We here provide the link to the LoRA pre-trained model in the paper below:
 |Contrastive Pre-train|[Google Drive](https://drive.google.com/file/d/1LN8EGvnkP85XsTySgOZ0VCS5wQkZK60_/view?usp=sharing)|
 |Prompt Fine-tune|[Google Drive](https://drive.google.com/file/d/1Df-EY26rS4-wg-Ip_PSPgRgfS0_issm5/view?usp=sharing)|
 
-The "Contrastive Pre-trained" mode generally gives a better stability while the "Prompt Fine-tuned" mode may behave better in some tasks. See more information from the original paper.
+The "Contrastive Pre-trained" mode generally gives better stability while the "Prompt Fine-tuned" model may behave better in some tasks. Please take a look at the information from the original paper.
 
 ## Reference
 
