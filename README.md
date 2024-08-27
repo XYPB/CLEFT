@@ -5,11 +5,11 @@
 
 ![teaser](assets/teaser.jpg)
 
-This is the official implementation of paper ["CLEFT: Language-Image Contrastive Learning with Efficient Large Language Model and Prompt Fine-Tuning"](https://arxiv.org/abs/2407.21011) (Accepted by MICCAI 2024).
+This is the official implementation of the paper ["CLEFT: Language-Image Contrastive Learning with Efficient Large Language Model and Prompt Fine-Tuning"](https://arxiv.org/abs/2407.21011) (Accepted by MICCAI 2024).
 
 ## Abstract
 
-> Recent advancements in Contrastive Language-Image Pretraining (CLIP) [21] have demonstrated notable success in self-supervised representation learning across various tasks. However, the existing CLIP- like approaches often demand extensive GPU resources and prolonged training times due to the considerable size of the model and dataset, making them poor for medical applications, in which large datasets are not always common. Meanwhile, the language model prompts are mainly manually derived from labels tied to images, potentially overlooking the richness of information within training samples. We introduce a novel language-image Contrastive Learning method with an Efficient large language model and prompt Fine-Tuning (CLEFT) that harnesses the strengths of the extensive pre-trained language and visual models. Furthermore, we present an efficient strategy for learning context-based prompts that mitigates the gap between informative clinical diagnostic data and simple class labels. Our method demonstrates state-of-the-art performance on multiple chest X-ray and mammography datasets compared with various baselines. The proposed parameter efficient framework can reduce the total trainable model size by 39% and reduce the trainable language model to only 4% compared with the current BERT encoder.
+> Recent advancements in Contrastive Language-Image Pretraining (CLIP) [21] have demonstrated notable success in self-supervised representation learning across various tasks. However, the existing CLIP-like approaches often demand extensive GPU resources and prolonged training times due to the considerable size of the model and dataset, making them poor for medical applications, in which large datasets are not always common. Meanwhile, the language model prompts are mainly manually derived from labels tied to images, potentially overlooking the richness of information within training samples. We introduce a novel language-image Contrastive Learning method with an Efficient large language model and prompt Fine-Tuning (CLEFT) that harnesses the strengths of the extensive pre-trained language and visual models. Furthermore, we present an efficient strategy for learning context-based prompts that mitigates the gap between informative clinical diagnostic data and simple class labels. Our method demonstrates state-of-the-art performance on multiple chest X-ray and mammography datasets compared with various baselines. The proposed parameter efficient framework can reduce the total trainable model size by 39% and reduce the trainable language model to only 4% compared with the current BERT encoder.
 
 
 
@@ -104,10 +104,10 @@ The "Contrastive Pre-trained" mode generally gives better stability while the "P
 ## Reference
 
 ```
-@article{du2024sift,
-  title={SIFT-DBT: Self-supervised Initialization and Fine-Tuning for Imbalanced Digital Breast Tomosynthesis Image Classification},
-  author={Du, Yuexi and Hooley, Regina J and Lewin, John and Dvornek, Nicha C},
-  journal={arXiv preprint arXiv:2403.13148},
+@article{du2024cleft,
+  title={CLEFT: Language-Image Contrastive Learning with Efficient Large Language Model and Prompt Fine-Tuning},
+  author={Du, Yuexi and Chang, Brian and Dvornek, Nicha C},
+  journal={arXiv preprint arXiv:2407.21011},
   year={2024}
 }
 ```
