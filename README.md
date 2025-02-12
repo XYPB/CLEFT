@@ -104,10 +104,14 @@ The "Contrastive Pre-trained" mode generally gives better stability while the "P
 ## Reference
 
 ```
-@article{du2024cleft,
-  title={CLEFT: Language-Image Contrastive Learning with Efficient Large Language Model and Prompt Fine-Tuning},
-  author={Du, Yuexi and Chang, Brian and Dvornek, Nicha C},
-  journal={arXiv preprint arXiv:2407.21011},
-  year={2024}
+@InProceedings{Du_CLEFT_MICCAI2024,
+        author = { Du, Yuexi and Chang, Brian and Dvornek, Nicha C.},
+        title = { { CLEFT: Language-Image Contrastive Learning with Efficient Large Language Model and Prompt Fine-Tuning } },
+        booktitle = {proceedings of Medical Image Computing and Computer Assisted Intervention -- MICCAI 2024},
+        year = {2024},
+        publisher = {Springer Nature Switzerland},
+        volume = {LNCS 15012},
+        month = {October},
+        page = {465 -- 475}
 }
 ```
